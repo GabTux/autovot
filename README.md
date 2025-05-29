@@ -98,7 +98,7 @@ Replace `/path/to/your/venv/bin/python` with the actual path to your virtualenv 
 cp -r plugin_autovot $HOME/.praat_dir/
 ```
 
-In Praat, open the **Plugins** menu, uncheck "test", and select the desired model.
+When using the AutoVOT plugin in Praat, uncheck "test", and select the desired model, i.e: `italian_french.model`.
 
 ---
 
