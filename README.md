@@ -44,6 +44,7 @@ You should see the help message of `VotDecode`.
 If not, recompile and copy the binaries:
 
 ```bash
+cd ../.. # to repo root
 cd autovot/code
 make
 cd ../..
@@ -72,12 +73,17 @@ export PATH="$PATH:$HOME/.local/bin"
 Create and activate a Python 3.11 virtual environment:
 
 ```bash
+cd $HOME # or anywhere you want to place python venv
 uv venv python3.11 --python 3.11
 source python3.11/bin/activate
 uv pip install -r requirements.txt
 ```
 
 Update the shebang in all Python scripts to point to your virtual environment interpreter. Example:
+
+```bash
+which python
+```
 
 ```python
 #! /home/gab/pyVenv/python3.11/bin/python
@@ -86,6 +92,7 @@ Update the shebang in all Python scripts to point to your virtual environment in
 You can update the shebang lines in all relevant scripts using:
 
 ```bash
+# from repository root
 find Linux/plugin_autovot -name "*.py" -exec sed -i '1s|^#!.*python.*$|#!/path/to/your/venv/bin/python|' {} +
 find Linux/train -name "*.py" -exec sed -i '1s|^#!.*python.*$|#!/path/to/your/venv/bin/python|' {} +
 ```
@@ -95,7 +102,8 @@ Replace `/path/to/your/venv/bin/python` with the actual path to your virtualenv 
 ### 4) Install the plugin
 
 ```bash
-cp -r plugin_autovot $HOME/.praat_dir/
+cd Linux
+cp -r plugin_autovot/ $HOME/.praat_dir/plugin_autovot
 ```
 
 When using the AutoVOT plugin in Praat, uncheck "test", and select the desired model, i.e: `italian_french.model`.
